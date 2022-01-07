@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardActions, CardContent, CardMedia, Button, Typography } from '@mui/material';
+import { Card, CardActions, CardContent, CardMedia, Button, Typography, Link } from '@mui/material';
 import { HawkerAPIRecord } from '@interfaces/hawkerCentre';
 import { isCentreOpen, getQuarter } from '@utils/dates';
 
@@ -30,7 +30,15 @@ const DetailedHawkerCard = ({ hawkerCentre }: { hawkerCentre?: HawkerAPIRecord }
 					{remarks && <Typography>{remarks}</Typography>}
 				</CardContent>
 				<CardActions>
-					<Button size='small'>View on Maps</Button>
+					<Button size='small' variant='outlined'>
+						<Link
+							underline='none'
+							target='_blank'
+							href={`http://www.google.com/maps/place/${hawkerCentre.latitude_hc},${hawkerCentre.longitude_hc}`}
+						>
+							View on maps
+						</Link>
+					</Button>
 				</CardActions>
 			</Card>
 		</>

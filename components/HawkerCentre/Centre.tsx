@@ -3,7 +3,7 @@ import DetailedHawkerCard from '@components/HawkerCentre/DetailedHawkerCard';
 import { useState, useEffect } from 'react';
 import { API_BASE_URL } from '@utils/config';
 import axios from 'axios';
-import Header from '@components/HawkerCentre/Header';
+import Header from '@components/shared/Header';
 import Loader from '@components/shared/Loader';
 import { Store } from '@interfaces/supabase';
 import { Container } from '@mui/material';
@@ -12,6 +12,7 @@ import StoreList from '@components/Stores/StoreList';
 const Centre = ({ id }: { id: number }) => {
 	const [hawkerCentre, setHawkerCentre] = useState<HawkerAPIRecord>();
 	const [hawkerStores, setHawkerStores] = useState<Store[]>([]);
+	const [storeFilter, setStoreFilter] = useState<string>('');
 	const [loading, setLoading] = useState<boolean>(true);
 
 	useEffect(() => {
@@ -38,7 +39,7 @@ const Centre = ({ id }: { id: number }) => {
 
 	return (
 		<>
-			<Header />
+			<Header setFilter={setStoreFilter} searchTerm='a store' />
 			{loading ? (
 				<div style={{ marginTop: '10rem' }}>
 					<Loader />
@@ -46,7 +47,7 @@ const Centre = ({ id }: { id: number }) => {
 			) : (
 				<Container fixed maxWidth='lg' disableGutters>
 					<DetailedHawkerCard hawkerCentre={hawkerCentre} />
-					<StoreList stores={hawkerStores} />
+					<StoreList stores={hawkerStores} filter={storeFilter} />
 				</Container>
 			)}
 		</>

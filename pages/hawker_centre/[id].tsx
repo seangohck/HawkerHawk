@@ -1,4 +1,5 @@
 import Centre from '@components/HawkerCentre/Centre';
+import Footer from '@components/shared/Footer';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -14,6 +15,7 @@ const Home: NextPage = () => {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Centre id={Number(id)} />
+			<Footer />
 		</div>
 	);
 };
