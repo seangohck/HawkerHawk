@@ -3,10 +3,7 @@ import { createClient } from '@supabase/supabase-js';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import cors from '@utils/cors';
 
-const supabase = createClient(
-	process.env.NEXT_PUBLIC_SUPABASE_URL as string,
-	'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic2VydmljZV9yb2xlIiwiaWF0IjoxNjQxMTY4MjgxLCJleHAiOjE5NTY3NDQyODF9.qogpm0bycNPZtjQGkq2073h8ACWrnLKU-HkuUpuRmWM'
-);
+const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL as string, process.env.SUPABASE_KEY as string);
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Store[]>) {
 	await cors(req, res);
