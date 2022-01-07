@@ -18,7 +18,11 @@ const MenuModal = ({ open, closeModal, store }: { open: boolean; closeModal: () 
 	<Modal open={open} onClose={closeModal}>
 		<Box sx={style}>
 			<Typography variant='h5' id='modal-modal-title'>
-				Menu for {store.store_name}
+				{store.store_name}
+			</Typography>
+			<Typography>{store.store_info}</Typography>
+			<Typography variant='h5' id='modal-modal-title'>
+				Menu
 			</Typography>
 			<MenuTable menu={store.store_menus} />
 		</Box>
