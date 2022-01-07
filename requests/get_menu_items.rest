@@ -1,0 +1,1 @@
+GET http://localhost:3000/api/menu/2a7d8b80-1579-4c70-b0eb-f0189d641ae1

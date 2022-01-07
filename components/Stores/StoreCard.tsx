@@ -2,7 +2,7 @@ import { Store } from '@interfaces/supabase';
 import { Card, CardContent, Typography, Button, Modal, Box, Table, TableContainer, TableCell, TableRow, TableHead, TableBody } from '@mui/material';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import { useState } from 'react';
-import MenuModal from './MenuModal';
+import MenuModal from '../Menu/MenuModal';
 
 const StoreCard = ({ store }: { store: Store }) => {
 	const [open, setOpen] = useState<boolean>(false);
