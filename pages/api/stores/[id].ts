@@ -1,6 +1,7 @@
 import { StoreHours, Store, StoreMenus } from '@interfaces/supabase';
 import { createClient } from '@supabase/supabase-js';
 import type { NextApiRequest, NextApiResponse } from 'next';
+import cors from '@utils/cors';
 
 const supabase = createClient(
 	process.env.NEXT_PUBLIC_SUPABASE_URL as string,
@@ -8,6 +9,8 @@ const supabase = createClient(
 );
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Store[]>) {
+	await cors(req, res);
+
 	const {
 		query: { id },
 		method,
