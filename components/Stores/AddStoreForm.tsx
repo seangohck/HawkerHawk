@@ -28,7 +28,7 @@ const AddStoreForm = ({ onAddStore, id }: { onAddStore: (store: Store) => void; 
 			console.log(values);
 			formik.resetForm();
 			const data = await axios.post(`/api/stores/${id}`, values);
-			console.log(data);
+			onAddStore(data.data as Store);
 		},
 	});
 

@@ -19,6 +19,7 @@ const Centre = ({ id }: { id: number }) => {
 	const openAddStoreForm = () => setAddStore(true);
 	const closeAddStoreForm = () => setAddStore(false);
 	const onAddStore = (store: Store) => {
+		console.log(store);
 		setHawkerStores([...hawkerStores, store]);
 		setAddStore(false);
 	};
