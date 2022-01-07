@@ -3,7 +3,7 @@ import { Card, CardActions, CardContent, CardMedia, Button, Typography, Link } f
 import { HawkerAPIRecord } from '@interfaces/hawkerCentre';
 import { isCentreOpen, getQuarter } from '@utils/dates';
 
-const DetailedHawkerCard = ({ hawkerCentre }: { hawkerCentre?: HawkerAPIRecord }) => {
+const DetailedHawkerCard = ({ hawkerCentre, addStore }: { hawkerCentre?: HawkerAPIRecord; addStore: () => void }) => {
 	if (!hawkerCentre) {
 		return null;
 	}
@@ -38,6 +38,10 @@ const DetailedHawkerCard = ({ hawkerCentre }: { hawkerCentre?: HawkerAPIRecord }
 						>
 							View on maps
 						</Link>
+					</Button>
+
+					<Button onClick={addStore} size='small' variant='contained' color='secondary'>
+						Add store
 					</Button>
 				</CardActions>
 			</Card>
