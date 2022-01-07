@@ -40,11 +40,11 @@ const isCentreOpen = (hawkerCentre: HawkerAPIRecord, quarter: Quarter) => {
 	const { cleaningStartDate, cleaningEndDate, remarksCleaning, worksStartDate, worksEndDate, worksRemarks } = getClosedDates(hawkerCentre, quarter);
 
 	if (dateBetween(cleaningStartDate, cleaningEndDate)) {
-		return { open: false, remarks: remarksCleaning };
+		return { open: false, remarks: `${remarksCleaning} from ${cleaningStartDate} to ${cleaningEndDate}` };
 	}
 
 	if (dateBetween(worksStartDate, worksEndDate)) {
-		return { open: false, remarks: worksRemarks };
+		return { open: false, remarks: `${worksRemarks} from ${worksStartDate} to ${worksEndDate}` };
 	}
 
 	return { open: true };
