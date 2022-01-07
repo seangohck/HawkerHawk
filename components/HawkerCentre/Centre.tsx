@@ -17,13 +17,13 @@ const Centre = ({ id }: { id: number }) => {
 
 	useEffect(() => {
 		const fetchCentre = async () => {
-			const axiosRes = await axios.get(`${API_BASE_URL}/hawker_centre/${id}`);
+			const axiosRes = await axios.get(`/api/hawker_centre/${id}`);
 			const hawkerCentre: HawkerAPIRecord = axiosRes.data;
 			setHawkerCentre(hawkerCentre as HawkerAPIRecord);
 		};
 
 		const fetchStores = async () => {
-			const axiosRes = await axios.get(`${API_BASE_URL}/stores/${id}`);
+			const axiosRes = await axios.get(`/api/stores/${id}`);
 			const hawkerStores = axiosRes.data;
 			setHawkerStores(hawkerStores as Store[]);
 		};

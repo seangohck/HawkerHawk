@@ -23,6 +23,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 		.match({ hawker_serial_no: Number(`${id}`) });
 
 	if (error) {
+		console.log(error);
 		return res.status(500);
 	}
 
