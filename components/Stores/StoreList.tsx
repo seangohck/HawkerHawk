@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Grid, Typography } from '@mui/material';
 import { Store } from '@interfaces/supabase';
+import StoreCard from '@components/Stores/StoreCard';
 
 const StoreList = ({ stores }: { stores: Store[] }) => {
 	return (
@@ -9,7 +10,7 @@ const StoreList = ({ stores }: { stores: Store[] }) => {
 				{stores.length ? (
 					stores.map((store) => (
 						<Grid item xs={12} md={6} lg={4} key={store.store_id}>
-							{store.store_name}
+							<StoreCard store={store} />
 						</Grid>
 					))
 				) : (
