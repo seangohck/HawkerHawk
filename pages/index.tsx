@@ -1,6 +1,7 @@
 import HawkerCentres from '@components/HawkerCentres/HawkerCentres';
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import ScrollToTop from '@components/shared/ScrollToTop';
 
 const Home: NextPage = () => {
 	return (
@@ -11,6 +12,7 @@ const Home: NextPage = () => {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<HawkerCentres />
+			<ScrollToTop />
 		</div>
 	);
 };
