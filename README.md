@@ -1,3 +1,4 @@
+<div id="top"></div>
 <!--
 *** Thanks for checking out the Best-README-Template. If you have a suggestion
 *** that would make this better, please fork the repo and create a pull request
@@ -61,6 +62,7 @@
       </ul>
     </li>
     <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
@@ -74,6 +76,7 @@
 -   Closing times
 -   Store menus and opening hours
 -   Add a new store
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Built With
 
@@ -84,6 +87,7 @@
 -   [TypeScript](https://www.typescriptlang.org/)
 -   [Vercel](https://vercel.com/) (For deployment)
 -   [data.gov.sg](https://data.gov.sg/) (API used to get hawker centres information)
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 
@@ -91,36 +95,37 @@
 
 To get a local copy up and running follow these simple example steps.
 
+<p align="right">(<a href="#top">back to top</a>)</p>
 ### Prerequisites
 
 This is an example of how to list things you need to use the software and how to install them.
 
 -   npm
-    ```sh
-    npm install npm@latest -g
-    ```
+`sh npm install npm@latest -g `
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Installation
 
-1. Clone the repo
+1.  Clone the repo
 
     ```sh
     git clone https://github.com/your_username_/Project-Name.git
     ```
 
-2. Install NPM packages with yarn or npm
+2.  Install NPM packages with yarn or npm
 
-    ```sh
-    yarn add
-    ```
+        ```sh
+        yarn add
+        ```
 
-    OR
+        OR
 
-    ```sh
-    npm install
-    ```
+        ```sh
+        npm install
+        ```
 
-<!-- CONTRIBUTING -->
+    <p align="right">(<a href="#top">back to top</a>)</p>
+    <!-- CONTRIBUTING -->
 
 ## Contributing
 
@@ -130,11 +135,26 @@ This is an example of how to list things you need to use the software and how to
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- ROADMAP -->
+
+## Roadmap
+
+-   [ ] Fix styling for responsiveness
+-   [ ] Add Sign Up and Sign In Auth
+-   [ ] Add Reviews section for Hawker Centres
+-   [ ] Add Reviews section for Stores
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 <!-- LICENSE -->
 
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- CONTACT -->
 
@@ -143,6 +163,8 @@ Distributed under the MIT License. See `LICENSE` for more information.
 Creator: [@seangoats](https://github.com/seangoats)
 
 Project Link: [https://github.com/seangoats/HawkerHawk](https://github.com/seangoats/HawkerHawk)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- ACKNOWLEDGEMENTS -->
 
