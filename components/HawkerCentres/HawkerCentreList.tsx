@@ -4,6 +4,7 @@ import HawkerCard from '@components/HawkerCentres/HawkerCard';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Loader from '@components/shared/Loader';
+import HawkerCardSkeletons from './HawkerCardSkeletons';
 
 const HawkerCentreList = ({ filter }: { filter: string }) => {
 	const [hawkerCentres, setHawkerCentres] = useState<HawkerAPIRecord[]>([]);
@@ -23,7 +24,7 @@ const HawkerCentreList = ({ filter }: { filter: string }) => {
 	return (
 		<Container sx={{ py: 8 }} maxWidth='xl'>
 			{loading ? (
-				<Loader />
+				<HawkerCardSkeletons />
 			) : (
 				<Grid container spacing={4}>
 					{hawkerCentres.length ? (
