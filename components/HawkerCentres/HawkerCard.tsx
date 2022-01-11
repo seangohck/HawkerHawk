@@ -7,10 +7,10 @@ const HawkerCard = ({ hawkerCentre }: { hawkerCentre: HawkerAPIRecord }) => {
 	const { open, remarks } = isCentreOpen(hawkerCentre, getQuarter());
 
 	return (
-		<Card raised sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-			<CardMedia component='img' image={hawkerCentre.photourl} alt={hawkerCentre.name} />
+		<Card raised sx={{ height: '100%', flex: '1', display: 'flex', flexDirection: 'column' }}>
+			<CardMedia component='img' image={hawkerCentre.photourl} alt={hawkerCentre.name} sx={{ maxHeight: '130px' }} />
 			<CardContent sx={{ flexGrow: 1 }}>
-				<Typography gutterBottom variant='h5' component='h2'>
+				<Typography variant='h5' component='h2'>
 					{hawkerCentre.name}
 				</Typography>
 				<Typography>Food stalls: {hawkerCentre.no_of_food_stalls}</Typography>
