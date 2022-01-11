@@ -96,6 +96,7 @@
 To get a local copy up and running follow these simple example steps.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
 ### Prerequisites
 
 This is an example of how to list things you need to use the software and how to install them.
@@ -114,17 +115,15 @@ This is an example of how to list things you need to use the software and how to
 
 2.  Install NPM packages with yarn or npm
 
-        ```sh
-        yarn add
-        ```
+    ```sh
+    yarn install
+    ```
 
-        OR
+    ```sh
+    npm install
+    ```
 
-        ```sh
-        npm install
-        ```
-
-    <p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">back to top</a>)</p>
     <!-- CONTRIBUTING -->
 
 ## Contributing
