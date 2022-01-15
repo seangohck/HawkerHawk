@@ -1,6 +1,12 @@
-import { Skeleton, Box, Grid } from '@mui/material';
+//mui
+import { Skeleton, Grid } from '@mui/material';
 
-const HawkerCardSkeletons = () => {
+/**
+ * Renders the loading skeletons for the hawker cards
+ *
+ * @returns {JSX.Element}
+ */
+const HawkerCardSkeletons = (): JSX.Element => {
 	return (
 		<Grid container spacing={4}>
 			{Array(9)

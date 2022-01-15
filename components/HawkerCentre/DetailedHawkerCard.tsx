@@ -1,11 +1,21 @@
-import React from 'react';
-import { Card, CardActions, CardContent, CardMedia, Button, Typography, Link } from '@mui/material';
-import { HawkerAPIRecord } from '@interfaces/hawkerCentre';
+//types
+import DetailedHawkerCardProps from '@interfaces/HawkerCentre/DetailedHawkerCard';
+//helpers
 import { isCentreOpen, getQuarter } from '@utils/dates';
+//lib
+import React from 'react';
+//mui
+import { Card, CardActions, CardContent, CardMedia, Button, Typography, Link } from '@mui/material';
 
-const DetailedHawkerCard = ({ hawkerCentre, addStore }: { hawkerCentre?: HawkerAPIRecord; addStore: () => void }) => {
+/**
+ * Renders the detailed hawker card component
+ *
+ * @param {DetailedHawkerCardProps} props - The hawkerCentre and addStore callback
+ * @returns {JSX.Element} - The detailed hawker card
+ */
+const DetailedHawkerCard = ({ hawkerCentre, addStore }: DetailedHawkerCardProps): JSX.Element => {
 	if (!hawkerCentre) {
-		return null;
+		return <div></div>;
 	}
 
 	const { open, remarks } = isCentreOpen(hawkerCentre, getQuarter());

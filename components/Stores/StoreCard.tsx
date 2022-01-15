@@ -1,12 +1,26 @@
-import { Store } from '@interfaces/supabase';
+//types
+import StoreCardProps from '@interfaces/Stores/StoreCard';
+//lib
+import { useState } from 'react';
+//mui
 import { Card, CardContent, Typography, Button, Modal, Box, Table, TableContainer, TableCell, TableRow, TableHead, TableBody } from '@mui/material';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
-import { useState } from 'react';
-import MenuModal from '../Menu/MenuModal';
+//components
+import MenuModal from '@components/Menu/MenuModal';
 
-const StoreCard = ({ store }: { store: Store }) => {
+/**
+ * Renders a card for a store
+ *
+ * @param {StoreCardProps} props - The store
+ * @returns {JSX.Element} - The Store Card component
+ */
+const StoreCard = ({ store }: StoreCardProps): JSX.Element => {
 	const [open, setOpen] = useState<boolean>(false);
+
+	/**Opens the modal */
 	const openModal = () => setOpen(true);
+
+	/**Closes the modal */
 	const closeModal = () => setOpen(false);
 
 	const { weekdays, weekends_ph, closed } = store.store_hours[0];

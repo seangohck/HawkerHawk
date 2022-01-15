@@ -1,42 +1,77 @@
+//types
 import { HawkerAPIRecord } from '@interfaces/hawkerCentre';
-import DetailedHawkerCard from '@components/HawkerCentre/DetailedHawkerCard';
+import CentreProps from '@interfaces/HawkerCentre/Centre';
+import { Store } from '@interfaces/supabase';
+//libs
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+//mui
+import { Container, Modal } from '@mui/material';
+//components
+import DetailedHawkerCard from '@components/HawkerCentre/DetailedHawkerCard';
 import Header from '@components/shared/Header';
 import Loader from '@components/shared/Loader';
-import { Store } from '@interfaces/supabase';
-import { Container, Modal } from '@mui/material';
 import StoreList from '@components/Stores/StoreList';
 import AddStoreModal from '@components/Stores/AddStoreModal';
 
-const Centre = ({ id }: { id: number }) => {
+/**
+ *
+ * Renders the full centre component for specific centre
+ *
+ * @param {CentreProps} - The props {id}
+ * @returns {JSX.Element} - The Center component
+ */
+const Centre = ({ id }: CentreProps): JSX.Element => {
 	const [hawkerCentre, setHawkerCentre] = useState<HawkerAPIRecord>();
 	const [hawkerStores, setHawkerStores] = useState<Store[]>([]);
 	const [storeFilter, setStoreFilter] = useState<string>('');
 	const [addStore, setAddStore] = useState<boolean>(false);
 	const [loading, setLoading] = useState<boolean>(true);
 
+	/**
+	 *
+	 * Opens the add store form
+	 */
 	const openAddStoreForm = () => setAddStore(true);
+
+	/**
+	 *
+	 * Closes the add store form
+	 */
 	const closeAddStoreForm = () => setAddStore(false);
+
+	/**
+	 * Adds the new store to the state
+	 *
+	 * @param {Store} store - The store added
+	 */
 	const onAddStore = (store: Store) => {
-		console.log(store);
 		setHawkerStores([...hawkerStores, store]);
 		setAddStore(false);
 	};
 
 	useEffect(() => {
+		/**
+		 * Fetches the hawker centre info from the gov api
+		 */
 		const fetchCentre = async () => {
 			const axiosRes = await axios.get(`/api/hawker_centre/${id}`);
 			const hawkerCentre: HawkerAPIRecord = axiosRes.data;
 			setHawkerCentre(hawkerCentre as HawkerAPIRecord);
 		};
 
+		/**
+		 * Fetches the stores of the centre from backend api
+		 */
 		const fetchStores = async () => {
 			const axiosRes = await axios.get(`/api/stores/${id}`);
 			const hawkerStores = axiosRes.data;
 			setHawkerStores(hawkerStores as Store[]);
 		};
 
+		/**
+		 * Fetch the stores and centres
+		 */
 		const fetchData = async () => {
 			await fetchCentre();
 			await fetchStores();

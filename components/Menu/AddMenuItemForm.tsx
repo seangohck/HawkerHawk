@@ -1,15 +1,28 @@
+//types
+import { StoreMenus } from '@interfaces/supabase';
+import AddMenuItemFormProps from '@interfaces/Menu/AddMenuItemForm';
+//lib
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { Button, TextField, Typography } from '@mui/material';
 import axios from 'axios';
-import { StoreMenus } from '@interfaces/supabase';
+//mui
+import { Button, TextField, Typography } from '@mui/material';
 
+/**
+ * Yup validation schema for the menu items
+ */
 const validationSchema = yup.object({
 	item_price: yup.number().required('Item price is required'),
 	item_name: yup.string().min(5, 'Should be at least 5 characters').required('Item name is required'),
 });
 
-const AddMenuItemForm = ({ onAddItem, store_id }: { onAddItem: (store: StoreMenus) => void; store_id: string }) => {
+/**
+ * Creates the form that allows to add a menu item
+ *
+ * @param {AddMenuItemFormProps} props - The onAddItem callback and store id
+ * @returns
+ */
+const AddMenuItemForm = ({ onAddItem, store_id }: AddMenuItemFormProps): JSX.Element => {
 	const formik = useFormik({
 		initialValues: {
 			item_price: 0,
@@ -17,7 +30,6 @@ const AddMenuItemForm = ({ onAddItem, store_id }: { onAddItem: (store: StoreMenu
 		},
 		validationSchema: validationSchema,
 		onSubmit: async (values) => {
-			console.log(values);
 			formik.resetForm();
 			const data = await axios.post(`/api/menu/${store_id}`, values);
 			console.log(data.data);

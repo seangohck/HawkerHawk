@@ -1,7 +1,16 @@
+//type
+import MenuTableProps from '@interfaces/Menu/MenuTable';
 import { StoreMenus } from '@interfaces/supabase';
+//mui
 import { Table, TableContainer, TableHead, TableRow, TableCell, TableBody } from '@mui/material';
 
-const MenuTable = ({ menu }: { menu: StoreMenus[] }) => (
+/**
+ * Renders a table showing the menu item and price of the store
+ *
+ * @param {MenuTableProps} - The menu containing item and prices
+ * @returns {JSX.Element} - The MenuTable component
+ */
+const MenuTable = ({ menu }: MenuTableProps): JSX.Element => (
 	<TableContainer>
 		<Table>
 			<TableHead>
@@ -11,7 +20,7 @@ const MenuTable = ({ menu }: { menu: StoreMenus[] }) => (
 				</TableRow>
 			</TableHead>
 			<TableBody>
-				{menu.map((item) => (
+				{menu.map((item: StoreMenus) => (
 					<TableRow key={item.item_id}>
 						<TableCell>{item.item_name}</TableCell>
 						<TableCell>{item.item_price}</TableCell>

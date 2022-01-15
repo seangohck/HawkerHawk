@@ -1,8 +1,15 @@
+//types
+import AddMenuItemModalProps from '@interfaces/Menu/AddMenuItemModal';
+//lib
 import { useState } from 'react';
+//mui
 import { Modal, Box, Button } from '@mui/material';
-import AddMenuItemForm from './AddMenuItemForm';
-import { StoreMenus } from '@interfaces/supabase';
+//components
+import AddMenuItemForm from '@components/Menu/AddMenuItemForm';
 
+/**
+ * Styles for the modal
+ */
 const style = {
 	position: 'absolute' as 'absolute',
 	top: '50%',
@@ -15,7 +22,13 @@ const style = {
 	p: 4,
 };
 
-const AddMenuItemModal = ({ onAddItem, store_id }: { onAddItem: (menuItem: StoreMenus) => void; store_id: string }) => {
+/**
+ * Renders the modal for the add menu item form
+ *
+ * @param {AddMenuItemModalProps} props - The onAddItem callback and store id
+ * @returns {JSX.Element} - The modal that contains the add menu item form
+ */
+const AddMenuItemModal = ({ onAddItem, store_id }: AddMenuItemModalProps): JSX.Element => {
 	const [open, setOpen] = useState<boolean>(false);
 
 	const openModal = () => setOpen(true);
@@ -28,7 +41,6 @@ const AddMenuItemModal = ({ onAddItem, store_id }: { onAddItem: (menuItem: Store
 			</Button>
 			<Modal open={open} onClose={closeModal}>
 				<Box sx={style}>
-					<Box></Box>
 					<AddMenuItemForm store_id={store_id} onAddItem={onAddItem} />
 					<Button fullWidth onClick={closeModal} variant='contained' color='error'>
 						Close

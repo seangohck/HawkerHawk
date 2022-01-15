@@ -1,13 +1,17 @@
+//mui
 import { Box, Typography, Link } from '@mui/material';
-import { useState } from 'react';
 
-const Footer = () => {
+/**
+ * Renders the footer component
+ *
+ * @returns {JSX.Element} - The footer component
+ */
+const Footer = (): JSX.Element => {
 	return (
 		<Box sx={{ bgcolor: 'background.paper', p: 6, display: 'flex' }} component='footer'>
 			<Typography variant='subtitle1' align='center' color='text.secondary' gutterBottom>
 				Built by
 				<Link underline='hover' href='https://github.com/seangoats'>
-					{' '}
 					@seangoats&nbsp;
 				</Link>
 			</Typography>

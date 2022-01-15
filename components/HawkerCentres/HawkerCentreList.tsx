@@ -1,16 +1,29 @@
+//types
 import { HawkerAPIRecord } from '@interfaces/hawkerCentre';
-import { Container, Grid, Typography } from '@mui/material';
-import HawkerCard from '@components/HawkerCentres/HawkerCard';
+import HawkerCentreListProps from '@interfaces/HawkerCentres/HawkerCentreList';
+//lib
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import Loader from '@components/shared/Loader';
-import HawkerCardSkeletons from './HawkerCardSkeletons';
+//mui
+import { Container, Grid, Typography } from '@mui/material';
+//components
+import HawkerCard from '@components/HawkerCentres/HawkerCard';
+import HawkerCardSkeletons from '@components/HawkerCentres/HawkerCardSkeletons';
 
-const HawkerCentreList = ({ filter }: { filter: string }) => {
+/**
+ * Renders the hawker cards into a flex list
+ *
+ * @param {HawkerCentreListProps} props - The filter if it exists
+ * @returns {JSX.Element} - The hawker centre list component
+ */
+const HawkerCentreList = ({ filter }: HawkerCentreListProps): JSX.Element => {
 	const [hawkerCentres, setHawkerCentres] = useState<HawkerAPIRecord[]>([]);
 	const [loading, setLoading] = useState<boolean>(true);
 
 	useEffect(() => {
+		/**
+		 * Fetches the hawker centres from the public gov api
+		 */
 		const fetchData = async () => {
 			const axiosRes = await axios.get('api/hawker_centres');
 			const hawkerCentres: HawkerAPIRecord[] = axiosRes.data;

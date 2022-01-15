@@ -1,9 +1,17 @@
-import { Store, StoreMenus } from '@interfaces/supabase';
+//types
+import { StoreMenus } from '@interfaces/supabase';
+import MenuModalProps from '@interfaces/Menu/MenuModal';
+//lib
+import { useState } from 'react';
+//mui
 import { Modal, Box, Typography } from '@mui/material';
-import AddMenuItemModal from './AddMenuItemModal';
-import MenuTable from './MenuTable';
-import { useState, useEffect } from 'react';
+//components
+import AddMenuItemModal from '@components/Menu/AddMenuItemModal';
+import MenuTable from '@components/Menu/MenuTable';
 
+/**
+ * Style for the modal
+ */
 const style = {
 	position: 'absolute' as 'absolute',
 	top: '50%',
@@ -16,11 +24,21 @@ const style = {
 	p: 4,
 };
 
-const MenuModal = ({ open, closeModal, store }: { open: boolean; closeModal: () => void; store: Store }) => {
+/**
+ * Renders the modal containing the menu table
+ *
+ * @param {MenuModalProps} props - The open state, closeModal callback and the store
+ * @returns {JSX.Element} - The modal containing the menu table
+ */
+const MenuModal = ({ open, closeModal, store }: MenuModalProps): JSX.Element => {
 	const [menu, setMenu] = useState<StoreMenus[]>(store.store_menus);
 
+	/**
+	 * Adds a menu item to the state
+	 *
+	 * @param {StoreMenus} menuItem - The menu item added
+	 */
 	const onAddItem = (menuItem: StoreMenus) => {
-		console.log(menuItem);
 		setMenu([...menu, menuItem]);
 	};
 

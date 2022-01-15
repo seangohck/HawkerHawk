@@ -1,9 +1,16 @@
+//types
+import { Store } from '@interfaces/supabase';
+import AddStoreFormProps from '@interfaces/Stores/AddStoreForm';
+//lib
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { Button, TextField, Typography } from '@mui/material';
 import axios from 'axios';
-import { Store } from '@interfaces/supabase';
+//mui
+import { Button, TextField, Typography } from '@mui/material';
 
+/**
+ * The yup validation for the store
+ */
 const validationSchema = yup.object({
 	store_info: yup.string().min(5, 'Should be at least 5 characters').required('Store info is required'),
 	store_name: yup.string().min(5, 'Should be at least 5 characters').required('Store name is required'),
@@ -13,7 +20,13 @@ const validationSchema = yup.object({
 	closed: yup.string().min(5, 'Should be at least 5 characters').required('Closed days are required'),
 });
 
-const AddStoreForm = ({ onAddStore, id }: { onAddStore: (store: Store) => void; id: number }) => {
+/**
+ * Renders the add store form
+ *
+ * @param {AddStoreFormProps} props - The onAddStore callback and store id
+ * @returns {JSX.Element} - The add store form
+ */
+const AddStoreForm = ({ onAddStore, id }: AddStoreFormProps): JSX.Element => {
 	const formik = useFormik({
 		initialValues: {
 			store_info: '',
@@ -25,7 +38,6 @@ const AddStoreForm = ({ onAddStore, id }: { onAddStore: (store: Store) => void; 
 		},
 		validationSchema: validationSchema,
 		onSubmit: async (values) => {
-			console.log(values);
 			formik.resetForm();
 			const data = await axios.post(`/api/stores/${id}`, values);
 			onAddStore(data.data as Store);

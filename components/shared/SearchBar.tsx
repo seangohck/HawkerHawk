@@ -1,7 +1,16 @@
+//type
+import SearchBarProps from '@interfaces/shared/SearchBar';
+//mui
 import { InputAdornment, TextField } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
-const SearchBar = ({ setFilter, searchTerm }: { setFilter: React.Dispatch<React.SetStateAction<string>>; searchTerm: string }) => (
+/**
+ * Renders the search bar component
+ *
+ * @param {SearchBarProps} - The setFilter function and the searchTerm
+ * @returns {JSX.Element} - The search bar component
+ */
+const SearchBar = ({ setFilter, searchTerm }: SearchBarProps): JSX.Element => (
 	<TextField
 		sx={{ marginX: '2rem' }}
 		autoFocus

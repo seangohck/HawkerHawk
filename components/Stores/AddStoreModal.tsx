@@ -1,7 +1,13 @@
-import { Store } from '@interfaces/supabase';
+//types
+import AddStoreModalProps from '@interfaces/Stores/AddStoreModal';
+//mui
 import { Modal, Box } from '@mui/material';
-import AddStoreForm from './AddStoreForm';
+//components
+import AddStoreForm from '@components/Stores/AddStoreForm';
 
+/**
+ * Styles for the modal
+ */
 const style = {
 	position: 'absolute' as 'absolute',
 	top: '50%',
@@ -15,17 +21,13 @@ const style = {
 	p: 4,
 };
 
-const AddStoreModal = ({
-	open,
-	closeModal,
-	onAddStore,
-	id,
-}: {
-	open: boolean;
-	closeModal: () => void;
-	onAddStore: (store: Store) => void;
-	id: number;
-}) => {
+/**
+ * Renders the modal containing the AddStoreForm
+ *
+ * @param {AddStoreModalProps} props - The props
+ * @returns {JSX.Element} - The AddStoreModal component
+ */
+const AddStoreModal = ({ open, closeModal, onAddStore, id }: AddStoreModalProps): JSX.Element => {
 	return (
 		<Modal open={open} onClose={closeModal}>
 			<Box sx={style}>
