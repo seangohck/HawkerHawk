@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 //components
 import HawkerCentreList from '@components/HawkerCentres/HawkerCentreList';
 import Header from '@components/shared/Header';
+//context
+import { HawkerCentresProvider } from '@components/HawkerCentres/context/hawkerCentres';
 
 /**
  *The container component for the Hawker Centres on the main page
@@ -14,9 +16,11 @@ const HawkerCentres = (): JSX.Element => {
 	return (
 		<>
 			<Header setFilter={setFilter} searchTerm='a hawker centre' />
-			<main>
-				<HawkerCentreList filter={filter} />
-			</main>
+			<HawkerCentresProvider>
+				<main>
+					<HawkerCentreList filter={filter} />
+				</main>
+			</HawkerCentresProvider>
 		</>
 	);
 };

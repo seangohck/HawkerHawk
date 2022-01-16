@@ -2,13 +2,15 @@
 import { HawkerAPIRecord } from '@interfaces/hawkerCentre';
 import HawkerCentreListProps from '@interfaces/HawkerCentres/HawkerCentreList';
 //lib
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 //mui
 import { Container, Grid, Typography } from '@mui/material';
 //components
 import HawkerCard from '@components/HawkerCentres/HawkerCard';
 import HawkerCardSkeletons from '@components/HawkerCentres/HawkerCardSkeletons';
+//context
+import { HawkerCentresContext } from '@components/HawkerCentres/context/hawkerCentres';
 
 /**
  * Renders the hawker cards into a flex list
@@ -17,22 +19,7 @@ import HawkerCardSkeletons from '@components/HawkerCentres/HawkerCardSkeletons';
  * @returns {JSX.Element} - The hawker centre list component
  */
 const HawkerCentreList = ({ filter }: HawkerCentreListProps): JSX.Element => {
-	const [hawkerCentres, setHawkerCentres] = useState<HawkerAPIRecord[]>([]);
-	const [loading, setLoading] = useState<boolean>(true);
-
-	useEffect(() => {
-		/**
-		 * Fetches the hawker centres from the public gov api
-		 */
-		const fetchData = async () => {
-			const axiosRes = await axios.get('api/hawker_centres');
-			const hawkerCentres: HawkerAPIRecord[] = axiosRes.data;
-			setHawkerCentres(hawkerCentres);
-			setLoading(false);
-		};
-
-		fetchData();
-	}, []);
+	const { hawkerCentres, loading } = useContext(HawkerCentresContext);
 
 	return (
 		<Container sx={{ py: 8 }} maxWidth='xl'>
